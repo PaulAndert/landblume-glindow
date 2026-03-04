@@ -1,0 +1,9 @@
+export SERVER_PORT=8787 \
+DB_HOST=192.168.50.2 \
+DB_PORT=6001 \
+DB_DATABASE=landblume \
+DB_SCHEMA=landblume_prod \
+DB_USER=landblume_app \
+DB_PASSWORD=xxx \
+LIQUIBASE_USER=liquibase \
+LIQUIBASE_PASSWORD=xxx && ./mvnw spring-boot:run

@@ -1,17 +1,14 @@
---liquibase formated sql
+--liquibase formatted sql
 --changeset PAUL_ANDERT:1 labels:vacation endDelimiter:/
 
 CREATE TABLE ${schema}.vac_vacation (
     vac_id INT GENERATED ALWAYS AS IDENTITY,
-    title VARCHAR(100),
-    description TEXT,
+    title VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
     activ_from DATE,
     activ_until DATE,
-    CONSTRAINT vac_pk PRIMARY KEY (vac_id),
-    CONSTRAINT vac_vac_id_nnc CHECK (vac_id IS NOT NULL),
-    CONSTRAINT vac_title_nnc CHECK (title IS NOT NULL),
-    CONSTRAINT vac_description_nnc CHECK (description IS NOT NULL),
-)
+    CONSTRAINT vac_pk PRIMARY KEY (vac_id)
+);
 
 COMMENT ON TABLE ${schema}.vac_vacation IS 'table for storing vacation entries';
 COMMENT ON COLUMN ${schema}.vac_vacation.vac_id IS 'primary key of the table';
