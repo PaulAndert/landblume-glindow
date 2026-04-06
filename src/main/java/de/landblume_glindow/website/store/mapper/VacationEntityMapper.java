@@ -8,4 +8,8 @@ import de.landblume_glindow.website.store.entity.VacationEntity;
 @Mapper(componentModel = "spring")
 public interface VacationEntityMapper {
     Vacation toDomain(VacationEntity entity);
+
+    default Vacation testMapping() {
+        return Vacation.builder().build();
+    }
 }

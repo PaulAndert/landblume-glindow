@@ -11,6 +11,11 @@ import de.landblume_glindow.website.store.entity.VacationEntity;
 @Repository
 public interface VacationRepository extends JpaRepository<VacationEntity, Long> {
     
-    @Query("SELECT v FROM VacationEntity v WHERE v.activFrom <= now() AND v.activUntil >= now();")
+    // @Query("SELECT v FROM VacationEntity v WHERE v.activFrom <= now() AND v.activUntil >= now()")
+    @Query("""
+    SELECT v FROM VacationEntity v 
+    WHERE v.activFrom <= CURRENT_TIMESTAMP 
+    AND v.activUntil >= CURRENT_TIMESTAMP
+    """)
     List<VacationEntity> loadActiveVacations();
 }
